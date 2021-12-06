@@ -1,9 +1,9 @@
 ## CS 31 Project 1, Fall 2021
 
-## Fall 2021 CS 31
+Fall 2021 CS 31
 
-# Programming Assignment 1  
-# Getting Started with C++
+Programming Assignment 1  
+Getting Started with C++
 
 ---------------------------------------------------
 
@@ -59,10 +59,7 @@ Use this project as an opportunity to learn what happens when you make mistakes.
 
 Here is the C++ program:
 
-> 	// Code for Project 1
-	// Report survey results
-	
-	#include <iostream>
+> 	#include <iostream>
 	using namespace std;
 	
 	int main()
