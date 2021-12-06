@@ -1,13 +1,11 @@
 ## CS 31 Project 1, Fall 2021
 
-Fall 2021 CS 31
+## Fall 2021 CS 31
 
-Programming Assignment 1  
-Getting Started with C++
+# Programming Assignment 1  
+# Getting Started with C++
 
 ---------------------------------------------------
-
-**Time due: 11:00 PM Monday, October 4**
 
 The purpose of this assignment is to have you start learning how to use the g++ and either the Visual C++ or Xcode environments, and understand a variety of programming errors.
 
@@ -61,7 +59,7 @@ Use this project as an opportunity to learn what happens when you make mistakes.
 
 Here is the C++ program:
 
-> // Code for Project 1
+> 	// Code for Project 1
 	// Report survey results
 	
 	#include <iostream>
