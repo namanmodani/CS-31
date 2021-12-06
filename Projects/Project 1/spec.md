@@ -1,9 +1,5 @@
- CS 31 Project 1, Fall 2021
-
-Fall 2021 CS 31
-
-Programming Assignment 1  
-Getting Started with C++
+### Programming Assignment 1  
+### Getting Started with C++
 ---------------------------------------------------
 
 The purpose of this assignment is to have you start learning how to use the g++ and either the Visual C++ or Xcode environments, and understand a variety of programming errors.
