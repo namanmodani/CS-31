@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)https://web.cs.ucla.edu/classes/fall21/cs31/Projects/6/spec.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <title>CS 31 Project 6, Fall 2021</title>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1041.0" data-gr-ext-installed="">
+<div align="right">
+Fall 2021 CS 31
+</div>
+<div align="center">
+<h2>Project 6<br>
+What's the Point?</h2>
+<p>
+<strong>Time due: 11:00 PM Monday, November 22</strong>
+</p>
+</div>
+<h3>Part 1</h3>
+<p style="margin-bottom:0">
+Go through the following sections of the class zyBook, doing the
+Participation Activities and Challenge Activities.  We will be looking at
+whether you have ever successfully completed them; it does not matter how
+many attempts you make before a successful completion (or how many
+attempts you make after a successful completion if you want to experiment).
+</p>
+<ul style="margin-top:0; margin-bottom:0">
+<li>8.5 through 8.9 (Part 2 does not depend on these)</li>
+</ul>
+<h3>Part 2</h3>
+<p>
+This project is designed to help you master pointers.  To that end, you'll
+get the most out of it by working through the problems by hand.  Only
+after that should you resort to running the programs (and stepping through
+them with the debugger) to check your understanding.  Remember, on the
+final exam you'll have to be able to do problems like this by hand.
+</p>
+<p>
+This "project" is more like a homework.  There are five problems.  In problems
+that ask you to change code, make the few changes necessary to fix the code
+without changing its overall approach.  For example, don't fix the program
+in problem 1a by changing it to
+</p>
+<pre>    int main()
+    {
+        cout &lt;&lt; "30\n20\n10" &lt;&lt; endl;
+    }
+</pre>
+<ol>
+<li>
+<p>
+The subparts to this problem involve errors in the use of pointers.
+</p>
+<ol style="list-style: lower-alpha">
+<li>
+<p>
+This program is supposed to write <code><strong>30 20 10</strong></code>,
+one per line.  Find all of the bugs and show a fixed version of the program:
+</p>
+<pre>    int main()
+    {
+        int arr[3] = { 5, 10, 15 };
+        int* ptr = arr;
+
+        *ptr = 30;          // set arr[0] to 30
+        *ptr + 1 = 20;      // set arr[1] to 20
+        ptr += 2;
+        ptr[0] = 10;        // set arr[2] to 10
+
+        while (ptr &gt;= arr)
+        {
+            ptr--;
+            cout &lt;&lt; *ptr &lt;&lt; endl;    // print values
+        }
+    }
+</pre>
+</li>
+<li>
+<p>
+The <code>findMax</code> function is supposed to find the maximum item in
+an array and set the <code>pToMax</code> parameter to point to that item
+so that the caller can know the location of that item.  Explain why this
+function won't do that, and show a way to fix it.  Your fix must be to the
+function only; you must not change the main routine below in any way, yet
+as a result of your fixing the function, the main routine below must work
+correctly.
+</p>
+<pre>    void findMax(int arr[], int n, int* pToMax)
+    {
+        if (n &lt;= 0) 
+            return;      // no items, no maximum!
+    
+        pToMax = arr;
+
+        for (int i = 1; i &lt; n; i++)
+        {
+            if (arr[i] &gt; *pToMax)
+                 pToMax = arr + i;
+        }
+    }       
+
+    int main()
+    {
+        int nums[4] = { 5, 3, 15, 6 };
+        int* ptr = &amp;nums[0];
+
+        findMax(nums, 4, ptr);
+        cout &lt;&lt; "The maximum is at address " &lt;&lt; ptr &lt;&lt; endl;
+        cout &lt;&lt; "It's at position " &lt;&lt; ptr - nums &lt;&lt; endl;
+        cout &lt;&lt; "Its value is " &lt;&lt; *ptr &lt;&lt; endl;
+    }
+</pre>
+</li>
+<li>
+<p>
+The <code>computeCube</code> function is correct, but the main function has
+a problem.  Explain why it may not work and show a way to fix it.  Your
+fix must be to the main function only; you must not change
+<code>computeCube</code> in any way.
+</p>
+<pre>    void computeCube(int n, int* ncubed)
+    {
+        *ncubed = n * n * n;
+    }
+
+    int main()
+    {
+        int* ptr;
+        computeCube(5, ptr);
+        cout &lt;&lt; "Five cubed is " &lt;&lt; *ptr &lt;&lt; endl;
+    }
+</pre>
+</li>
+<li>
+<p>
+The <code>strequal</code> function is supposed to return true if and only if
+its two C string arguments have exactly same text.  Explain what the problems
+with the implementation of the function are, and show a way to fix them.
+</p>
+<pre>      // return true if two C strings are equal
+    bool strequal(const char str1[], const char str2[])
+    {
+        while (str1 != 0  &amp;&amp;  str2 != 0)  // zero bytes at ends
+        {
+            if (str1 != str2)  // compare corresponding characters
+                return false;
+            str1++;            // advance to the next character
+            str2++;
+        }
+        return str1 == str2;   // both ended at same time?
+    }
+
+    int main()
+    {
+        char a[15] = "Wang, A.";
+        char b[15] = "Wang, R.";
+
+        if (strequal(a,b))
+            cout &lt;&lt; "They're the same person!\n";
+    }
+</pre>
+</li>
+<li>
+<p>
+This program is supposed to write <code>100 99 98 3 2 1</code>,
+but it probably does not.  What is the program doing that is incorrect?  (We're
+not asking you explain why the incorrect action leads to the particular
+outcome it does, and we're not asking you to propose a fix to the problem.)
+</p>
+<pre>    #include &lt;iostream&gt;
+    using namespace std;
+
+    int* nochange(int* p)
+    {
+        return p;
+    }
+
+    int* getPtrToArray(int&amp; m)
+    {
+        int anArray[100];
+        for (int j = 0; j &lt; 100; j++)
+            anArray[j] = 100-j;
+        m = 100;
+        return nochange(anArray);
+    }
+
+    void f()
+    {
+        int junk[100];
+        for (int k = 0; k &lt; 100; k++)
+            junk[k] = 123400000 + k;
+        junk[50]++;
+    }
+
+    int main()
+    {
+        int n;
+        int* ptr = getPtrToArray(n);
+        f();
+        for (int i = 0; i &lt; 3; i++)
+            cout &lt;&lt; ptr[i] &lt;&lt; ' ';
+        for (int i = n-3; i &lt; n; i++)
+            cout &lt;&lt; ptr[i] &lt;&lt; ' ';
+        cout &lt;&lt; endl;
+    }
+</pre>
+</li>
+</ol>
+</li>
+<li>
+<p>
+For each of the following parts, write a single C++ statement that performs
+the indicated task.  For each part, assume that all previous statements
+have been executed (e.g., when doing part e, assume the statements
+you wrote for parts a through d have been executed).  For each part, do not
+use any variable names not mentioned in that part (e.g., if the part
+doesn't mention <code>cat</code>, do not use <code>cat</code> in your answer).
+</p>
+<ol style="list-style: lower-alpha">
+<li>Declare a pointer variable named <code>cat</code> that can point to
+a variable of type double.</li>
+<li>Declare <code>mouse</code> to be a 5-element array of doubles.</li>
+<li>Make the <code>cat</code> variable point to the last element of
+<code>mouse</code>.</li>
+<li>Make the double pointed to by <code>cat</code> equal to 25, using
+the * operator.</li>
+<li>Without using the <code>cat</code> pointer, and without using square
+brackets, set the fourth element (i.e., the one at position 3) of the
+<code>mouse</code> array to have the value 54.</li>
+<li>Move the <code>cat</code> pointer back by three doubles.</li>
+<li>Using square brackets, but without using the name
+<code>mouse</code>, set the third element (i.e., the one at position 2) of
+the <code>mouse</code> array to have the value 17.  (You may use
+<code>cat</code>.)</li>
+<li>Without using the <code>*</code> operator or the name
+<code>mouse</code>, but using square brackets, set the double pointed to
+by <code>cat</code> to have the value 42.</li>
+<li>Using the <code>==</code> operator in the initialization expression,
+declare a bool variable named <code>d</code> and initialize it with an
+expression that evaluates to true if <code>cat</code> points to the double
+at the start of the <code>mouse</code> array, and to false otherwise.</li>
+<li>Using the <code>*</code> operator in the initialization expression,
+declare a bool variable named <code>b</code> and initialize it with an
+expression that evaluates to true if the double pointed to by
+<code>cat</code> is equal to the double immediately following the double
+pointed to by <code>cat</code>, and to false otherwise.  Do not use the name
+<code>mouse</code>.</li>
+</ol>
+<p></p>
+</li>
+<li>
+<ol style="list-style: lower-alpha">
+<li>
+<p>
+Rewrite the following function so that it returns the same result, but does
+not increment the variable <code>ptr</code>.  Your new program must not
+use any square brackets, but must use an integer variable to visit each
+double in the array.  You may eliminate any unneeded variable.
+</p>
+<pre>    double mean(const double* scores, int numScores)
+    {
+        const double* ptr = scores;
+        double tot = 0;
+        while (ptr != scores + numScores)
+        {
+            tot += *ptr;
+            ptr++;
+        }
+        return tot/numScores;
+    }
+</pre>
+</li>
+<li>
+<p>
+Rewrite the following function so that it does not use any square brackets (not
+even in the parameter declarations) but does use the integer variable
+<code>k</code>.  Do not use any of the <code>&lt;cstring&gt;</code> functions
+such as <code>strlen</code>, <code>strcpy</code>, etc.
+</p>
+<pre>    // This function searches through str for the character chr.
+    // If the chr is found, it returns a pointer into str where
+    // the character was first found, otherwise nullptr (not found).
+
+    const char* findTheChar(const char str[], char chr)
+    {
+        for (int k = 0; str[k] != 0; k++)
+            if (str[k] == chr)
+                return &amp;str[k];
+
+        return nullptr;
+    }
+</pre>
+</li>
+<li>
+<p>
+Now rewrite the function shown in part b so that it uses neither square
+brackets nor any integer variables.  Your new function must not use any
+local variables other than the parameters.  Do not use any of the
+<code>&lt;cstring&gt;</code> functions such as <code>strlen</code>,
+<code>strcpy</code>, etc.
+</p>
+</li>
+</ol>
+</li>
+<li>
+<p>
+What does the following program print and why?  Be sure to explain why
+each line of output prints the way it does to get full credit. 
+</p>
+<pre>    #include &lt;iostream&gt;
+    using namespace std;
+
+    int* maxwell(int* a, int* b)
+    {
+        if (*a &gt; *b)
+            return a;
+        else
+            return b;
+    }
+
+    void swap1(int* a, int* b)
+    {
+        int* temp = a;
+        a = b;
+        b = temp;
+    }
+
+    void swap2(int* a, int* b)
+    {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
+    int main()
+    {
+        int array[6] = { 5, 3, 4, 17, 22, 19 };
+
+        int* ptr = maxwell(array, &amp;array[2]);
+        *ptr = -1;
+        ptr += 2;
+        ptr[1] = 9;
+        *(array+1) = 79;
+
+        cout &lt;&lt; &amp;array[5] - ptr &lt;&lt; endl;
+
+        swap1(&amp;array[0], &amp;array[1]);
+        swap2(array, &amp;array[2]);
+
+        for (int i = 0; i &lt; 6; i++)
+            cout &lt;&lt; array[i] &lt;&lt; endl;
+    } 
+</pre>
+</li>
+<li>
+<p>
+Write a function named <code>removeS</code> that accepts one character
+pointer as a parameter and returns no value.  The parameter is a C string.
+This function must remove all of the upper and lower case 's' letters from
+the string.  The resulting string must be a valid C string.
+</p><p>
+Your function must declare no more than one local variable in addition to the
+parameter; that additional variable must be of a pointer type.  Your
+function must not use any square brackets and must not use any of the
+<code>&lt;cstring&gt;</code> functions such as <code>strlen</code>,
+<code>strcpy</code>, etc.
+</p>
+<pre>    int main()
+    {
+        char msg[50] = "She'll be a massless princess.";
+        removeS(msg);
+        cout &lt;&lt; msg;  // prints   he'll be a male prince.
+    }
+</pre>
+</li>
+</ol>
+<p>
+You won't turn anything in through the CS 31 web site for Part 1; the zyBook
+system notes your successful completion of the PAs and CAs.  For Part 2,
+prepare your solutions to these homework problems as a single Word
+document named <strong>hw.docx</strong> or <strong>hw.doc</strong>,
+or a plain text file named <strong>hw.txt</strong>.  Put that file in a
+zip file.  By Sunday, November 21, there will be a link on the class webpage
+that will enable you to turn in your zip file.
+</p>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
