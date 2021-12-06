@@ -3,7 +3,9 @@ Portfolio of projects developed for CS 31, taken under Professor David A. Smallb
 
 Language(s): C++ (CLion, g++)
 
-## Content Covered
+Course website: https://web.cs.ucla.edu/classes/fall21/cs31/
+
+## Course Materials
 - Computer History
 - Basics & Control Flow
 - Functions
@@ -15,4 +17,3 @@ Language(s): C++ (CLion, g++)
 - Pointers
 - Overloading
 
-Course website: https://web.cs.ucla.edu/classes/fall21/cs31/
