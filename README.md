@@ -14,3 +14,5 @@ Language(s): C++ (CLion, g++)
 - Constructors
 - Pointers
 - Overloading
+
+Course website: https://web.cs.ucla.edu/classes/fall21/cs31/
