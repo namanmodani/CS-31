@@ -131,4 +131,3 @@ bool decrypt(const char ciphertext[], const char crib[]) {
 
     return false;
 }
-
