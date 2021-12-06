@@ -1,5 +1,5 @@
 # CS 31: Introduction to Computer Science I
-Portfolio of projects developed for CS 31, taken under Professor David A. Smallberg in Fall 2021.
+Portfolio of projects developed for CS 31, taken under Professor David A. Smallberg in Fall 2021. Don't forget the semicolon!
 
 Language(s): C++ (CLion, g++)
 
