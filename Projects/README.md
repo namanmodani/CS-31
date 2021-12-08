@@ -1,5 +1,7 @@
 # Project Scores
 
+The following table houses my project scores through CS-31.
+
 | Project | Score |
 | ------- | ----- |
 | 1 | 100/100  |
