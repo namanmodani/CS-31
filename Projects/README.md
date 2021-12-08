@@ -1,6 +1,6 @@
 # Project Scores
 
-The following table houses my project scores through CS-31.
+The following table houses my project scores through CS 31.
 
 | Project | Score |
 | ------- | ----- |
