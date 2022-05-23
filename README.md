@@ -5,7 +5,7 @@ Language(s): C++ (CLion, g++)
 
 Course website: https://web.cs.ucla.edu/classes/fall21/cs31/
 
-## Course Materials
+## Course Material
 - Computer History
 - Basics & Control Flow
 - Functions
