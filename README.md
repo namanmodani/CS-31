@@ -18,10 +18,10 @@ Software used: C++.
 
 The course comprised of seven projects, the content of which can be found in `/Projects`.
 
-1. Getting Started with C++
-2. Rental Reckoning
-3. Grid Game
-4. Array of Sunshine
-5. Secret Plans
-6. What's the Point?
-7. Gone with the Wind
+1. [Getting Started with C++](/Projects/Project%201/)
+2. [Rental Reckoning](/Projects/Project%202/)
+3. [Grid Game](/Projects/Project%203/)
+4. [Array of Sunshine](/Projects/Project%204/)
+5. [Secret Plans](/Projects/Project%205/)
+6. [What's the Point?](/Projects/Project%206/)
+7. [Gone with the Wind](/Projects/Project%207/)
