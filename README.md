@@ -1,6 +1,6 @@
 # CS 31: Introduction to Computer Science I
 
-This repository contains my work and course material for CS 31, taken under Professor David A. Smallberg in Fall 2021. Don't forget the semicolon!
+This repository contains my work and course material for CS 31, taken under Professor [David A. Smallberg](https://samueli.ucla.edu/people/david-smallberg/) in Fall 2021. Don't forget the semicolon!
 
 Software used: C++.
 
