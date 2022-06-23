@@ -1,6 +1,6 @@
 # Project Scores
 
-The following table houses my project scores through CS 31. All projects combined were worth 66%, while the warmup assignments from the ZyBook were 7% of my grade. 3 points of extra credit were available on project 4.
+The following table houses my project scores through CS 31. All projects combined were worth 66%, while the warmup assignments from the zyBook were 7% of my grade. 3 points of extra credit were available on project 4.
 
 | # | Project | Score |
 | - | ------- | ----- |

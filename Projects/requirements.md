@@ -4,7 +4,7 @@ For each project, you will turn in programs and documentation electronically via
 
 - The names of the files contained in the zip file must be exactly what the project spec states. For example, if it says one of the files must be named calendar.cpp, then make sure it's named calendar.cpp, not calendar.cpp.txt or calendar.docx or calender.cpp or proj1.cpp or p1calendar.cpp. Even if English isn't your native language, or if you're a bad typist or speller, there's not much of an excuse for messing up here: We don't speak Irish, but if told to name a file "caoilfhionn" we could at least compare what we typed with what was required.
 
-- The zip file must contain only the files required by the spec, unless the spec explicitly lists optional files you may include. The exception to this is that if you create the zip file under macOS, it is acceptable if it contains the additional files that the macOS zip utility sometimes introduces: __MACOSX, .DS_Store, and names starting with ._ that contain your file names.
+- The zip file must contain only the files required by the spec, unless the spec explicitly lists optional files you may include. The exception to this is that if you create the zip file under macOS, it is acceptable if it contains the additional files that the macOS zip utility sometimes introduces: `__MACOSX`, `.DS_Store`, and names starting with `._` that contain your file names.
 
 We are continually amazed by people who get a zero by not meeting these simple requirements that someone who knows nothing about C++ could meet.
 
@@ -15,7 +15,7 @@ You are free to use any C++ development environment you want, but you must ensur
 
 Be sure you budget enough time to test your program using both compilers. In fact, periodically during program development, test your program using the compiler other than the one that you use to do your primary development. Rather than being a burden, this requirement to run using two compilers helps you improve your correctness score by assisting you in detecting errors in two ways:
 
-- Different compilers might look for different questionable things to warn you about. For example, if instead of the character literal '\n' you mistakenly write '/n', Visual C++ says nothing, while the other compilers warn you about a multi-character constant.
+- Different compilers might look for different questionable things to warn you about. For example, if instead of the character literal `'\n'` you mistakenly write `'/n'`, Visual C++ says nothing, while the other compilers warn you about a multi-character constant.
 - Different compilers might produce code that behaves differently if your program does something with undefined behavior, such as using the value of an uninitialized variable or accessing an element outside the bounds of an array. If running your program under two different compilers produces different behavior, there's a very good chance your program is doing something undefined, which we prohibit.
 
 If the program you turn in fails to build, your correctness score will be zero because we will be unable to test it. Don't make the mistake of making a last-minute change to your program and turning it in without having first tested the effect of that change. (Sometimes people think they made a change with no effect, like adding a comment, but didn't notice that their finger slipped and they also added a stray bad character not in a comment.)
