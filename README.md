@@ -16,7 +16,7 @@ Software used: C++.
 - Pointers
 - Overloading
 
-The course comprised of seven projects, the content of which can be found in `/Projects`. In chronological order:
+The course comprised of seven projects, the content of which can be found in `Projects/`. In chronological order:
 
 1. [Getting Started with C++](/Projects/Project%201/)
 2. [Rental Reckoning](/Projects/Project%202/)
